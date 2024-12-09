@@ -2,6 +2,7 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.dto.CarDto;
@@ -16,11 +17,19 @@ public class Cars {
         }
     }
 
-    public void registerCar(String rawCars) {
-        String[] tokens = rawCars.split(",");
-        for (String carName : tokens) {
-            cars.add(new Car(carName));
+    public void registerCar(final Car car) {
+        cars.add(car);
+    }
+
+    public List<CarDto> getFarthestCars() {
+        int maxPosition = Collections.max(cars).getPosition();
+        List<CarDto> winnerCars = new ArrayList<>();
+        for (Car car : cars) {
+            if (car.getPosition() == maxPosition) {
+                winnerCars.add(car.getCarDto());
+            }
         }
+        return winnerCars;
     }
 
     public List<CarDto> getCarDtos() {

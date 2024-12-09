@@ -14,7 +14,12 @@ public class InputView {
         System.out.println(TRIAL_INPUT_GUIDE_MESSAGE);
     }
 
-    public String getInput() {
+    public String[] getCarNames() {
+        String carNames = Console.readLine();
+        return carNames.split(",");
+    }
+
+    public String getTrialCount() {
         return Console.readLine();
     }
 }

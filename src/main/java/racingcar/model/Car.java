@@ -11,6 +11,10 @@ public class Car {
         this.name = name;
     }
 
+    public void move() {
+
+    }
+
     private void validateCarName(String name) {
         if (name.length() > 5 || name.isBlank()) {
             throw new IllegalArgumentException(CAR_NAME_INVALID_EXCEPTION.message);

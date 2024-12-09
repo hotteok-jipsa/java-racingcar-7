@@ -7,6 +7,12 @@ public class Cars {
 
     private final List<Car> cars = new ArrayList<>();
 
+    public void moveCars() {
+        for (Car car : cars) {
+            car.move();
+        }
+    }
+
     public void registerCar(String rawCars) {
         String[] tokens = rawCars.split(",");
         for (String carName : tokens) {

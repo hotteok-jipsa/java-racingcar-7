@@ -12,7 +12,7 @@ public class Car {
     }
 
     private void validateCarName(String name) {
-        if (name.length() > 5) {
+        if (name.length() > 5 || name.isBlank()) {
             throw new IllegalArgumentException(CAR_NAME_INVALID_EXCEPTION.message);
         }
     }

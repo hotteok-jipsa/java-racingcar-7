@@ -23,4 +23,12 @@ public class CarTest {
                 .hasMessageContaining(CAR_NAME_INVALID_EXCEPTION.message);
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"", "  "})
+    void 자동차_이름이_공백이라면_예외를_발생시킨다(String carName) {
+        assertThatThrownBy(() -> new Car(carName))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(CAR_NAME_INVALID_EXCEPTION.message);
+    }
+
 }

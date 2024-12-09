@@ -16,6 +16,7 @@ public class ProgressView {
             System.out.print(carDto.name() + COLON);
             printPosition(carDto.position());
         }
+        System.out.println();
     }
 
     private static void printPosition(int position) {

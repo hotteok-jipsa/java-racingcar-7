@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static racingcar.ExceptionMessage.CAR_NAME_INVALID_EXCEPTION;
@@ -31,4 +32,20 @@ public class CarTest {
                 .hasMessageContaining(CAR_NAME_INVALID_EXCEPTION.message);
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"4", "5"})
+    void 무작위_값이_4_이상일_경우_전진한다(int randomNumber) {
+        Car car = new Car("pobi");
+        car.move(randomNumber);
+        assertThat(car.getPosition()).isEqualTo(1);
+    }
+
+
+    @ParameterizedTest
+    @ValueSource(strings = {"2", "3"})
+    void 무작위_값이_4보다_작을_경우_전진하지_않는다(int randomNumber) {
+        Car car = new Car("pobi");
+        car.move(randomNumber);
+        assertThat(car.getPosition()).isEqualTo(0);
+    }
 }

@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ public class Cars {
 
     public void moveCars() {
         for (Car car : cars) {
-            car.move();
+            car.move(getRandomNumber());
         }
     }
 
@@ -18,6 +19,10 @@ public class Cars {
         for (String carName : tokens) {
             cars.add(new Car(carName));
         }
+    }
+
+    private int getRandomNumber() {
+        return Randoms.pickNumberInRange(0, 9);
     }
 
 }

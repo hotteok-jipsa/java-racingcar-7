@@ -2,6 +2,8 @@ package racingcar.model;
 
 import static racingcar.ExceptionMessage.CAR_NAME_INVALID_EXCEPTION;
 
+import racingcar.dto.CarDto;
+
 public class Car {
 
     private static final int MINIMUM_NUMBER_TO_MOVE = 4;
@@ -23,6 +25,12 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    public CarDto getCarDto() {
+        return new CarDto(
+                name, position
+        );
     }
 
     private void validateCarName(String name) {
